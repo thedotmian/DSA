@@ -1,0 +1,65 @@
+public class functions {
+    
+    int queue[];
+    int top;//first at the row
+    int back;//end person
+    int len;
+    functions(int length){
+        queue = new int [length];
+        top=0;
+        back=-1;
+        len=length;
+        
+        
+    }
+    
+    void enQueue(int data){
+        if(isEmpty()){
+            queue[++back]=data;
+        }
+        else{
+            System.out.println("queue is not enough space");
+        }
+        
+        
+        
+    }
+    
+    void deQueue(){
+           
+               if(isDataPresent()){
+                for(int i=top; i<back; i++){
+                    queue[i]=queue[i+1];
+                }
+                back--;
+            
+               }
+               else{
+                   System.out.println("unable to de queue");
+               }
+    }
+    
+    void printQueue(){
+        for(int i=top; i<=back; i++){
+            System.out.print(queue[i]+"  ");
+        }
+    }
+    
+    boolean isEmpty(){
+       if(back!=len-1)
+           return true;
+       else
+           return false;
+    }
+
+    boolean isDataPresent(){
+        if(back>-1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    
+}
